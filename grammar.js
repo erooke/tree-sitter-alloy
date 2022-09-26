@@ -15,6 +15,17 @@ module.exports = grammar({
         // TODO implement the rest of these
       ),
 
+    expression: $ => choice(
+      $.constant_expression
+    ),
+
+    constant_expression: $ => choice(
+      seq(optional("-"), /[0-9]+/),
+      "none",
+      "univ",
+      "iden",
+    ),
+
     block: $ => seq("{", "}"), // TODO process expressions
 
     fact_decl: ($) =>
