@@ -1,0 +1,34 @@
+=====
+Union
+=====
+
+fact { a + b & c }
+
+---
+
+(source_file
+  (fact_decl
+    (block
+      (binary_expression
+        left: (qual_name)
+        right: (binary_expression
+          left: (qual_name)
+          right: (qual_name)
+        )))))
+
+=====
+Comparison
+=====
+
+fact {
+  A not in B
+}
+
+---
+
+(source_file
+  (fact_decl
+    (block
+      (binary_expression
+        left: (qual_name)
+        right: (qual_name)))))
