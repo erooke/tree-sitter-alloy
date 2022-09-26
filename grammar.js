@@ -3,11 +3,11 @@ module.exports = grammar({
 
   rules: {
     source_file: ($) =>
-      seq(optional($.module_decl), optional(repeat($.declaration))),
+      seq(optional($.module_decl), optional(repeat($._declaration))),
 
     module_decl: ($) => seq("module", $.qual_name),
 
-    declaration: ($) =>
+    _declaration: ($) =>
       choice(
         $.sig_decl,
         $.enum_decl
