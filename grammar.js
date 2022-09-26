@@ -58,6 +58,14 @@ module.exports = grammar({
 
     name: ($) => /[a-zA-Z0-9_]+/,
 
-    qual_name: ($) => seq(optional("this/"), repeat(seq($.name, "/")), $.name),
+    qual_name: ($) =>
+      token(
+        seq(
+          optional("this/"),
+          repeat(seq(/[a-zA-Z0-9_]+/, "/")),
+          /[a-zA-Z0-9_]+/
+        )
+      ),
+
   },
 });

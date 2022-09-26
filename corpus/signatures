@@ -75,7 +75,7 @@ abstract sig Object, Object2 extends Object3 {}
     (name)
     (name)
     (sig_extension
-      (qual_name (name)))))
+      (qual_name))))
 
 
 =====
@@ -91,5 +91,5 @@ abstract sig Object, Object2 in Object3 + Object4{}
     (name)
     (name)
     (sig_extension
-      (qual_name (name))
-      (qual_name (name)))))
+      (qual_name)
+      (qual_name))))
