@@ -6,6 +6,6 @@ format:
 	npm run format
 
 .PHONY: build
-build:
+build: format
 	npm run build
 
