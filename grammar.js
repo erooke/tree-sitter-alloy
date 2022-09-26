@@ -9,6 +9,8 @@ const binary = (left, op, right) => {
 module.exports = grammar({
   name: "Alloy",
 
+  extras: ($) => [$.comment, /\s/],
+
   rules: {
     source_file: ($) =>
       seq(optional($.module_decl), optional(repeat($._declaration))),
@@ -112,5 +114,9 @@ module.exports = grammar({
         )
       ),
 
+    comment: ($) =>
+      token(
+        choice(seq("--", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))
+      ),
   },
 });
