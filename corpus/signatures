@@ -1,0 +1,102 @@
+=====
+Basic
+=====
+
+sig Object {}
+
+---
+
+(source_file
+  (declaration
+    (sig_decl
+      (name))))
+
+
+=====
+Abstract
+=====
+
+abstract sig Object {}
+
+---
+
+(source_file
+  (declaration
+    (sig_decl
+      (name))))
+
+=====
+Variable
+=====
+
+var sig Object {}
+
+---
+
+(source_file
+  (declaration
+    (sig_decl
+      (name))))
+
+=====
+Multiplicity
+=====
+
+lone sig Object {}
+
+---
+
+(source_file
+  (declaration
+    (sig_decl
+      (mult)
+      (name))))
+
+=====
+Multiple
+=====
+
+abstract sig Object, Object2 {}
+
+---
+
+(source_file
+  (declaration
+    (sig_decl
+      (name)
+      (name))))
+
+
+=====
+Extends
+=====
+
+abstract sig Object, Object2 extends Object3 {}
+
+---
+
+(source_file
+  (declaration
+    (sig_decl
+      (name)
+      (name)
+      (sig_extension
+        (qual_name (name))))))
+
+
+=====
+In
+=====
+
+abstract sig Object, Object2 in Object3 + Object4{}
+
+---
+
+(source_file
+  (declaration
+    (sig_decl
+      (name)
+      (name)
+      (sig_extension
+        (qual_name (name))
+        (qual_name (name))))))
