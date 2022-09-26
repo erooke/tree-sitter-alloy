@@ -1,0 +1,24 @@
+=====
+Anonymous Fact
+=====
+
+fact {}
+
+---
+
+(source_file
+  (fact_decl
+    (block)))
+
+=====
+Named Fact
+=====
+
+fact A {}
+
+---
+
+(source_file
+  (fact_decl
+    name: (name)
+    (block)))

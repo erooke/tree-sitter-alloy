@@ -10,9 +10,15 @@ module.exports = grammar({
     _declaration: ($) =>
       choice(
         $.sig_decl,
-        $.enum_decl
+        $.enum_decl,
+        $.fact_decl
         // TODO implement the rest of these
       ),
+
+    block: $ => seq("{", "}"), // TODO process expressions
+
+    fact_decl: ($) =>
+      seq("fact", field("name", optional($.name)), $.block),
 
     enum_decl: ($) =>
       seq("enum", $.name, "{", optional(repeat(seq($.name, ","))), $.name, "}"),
