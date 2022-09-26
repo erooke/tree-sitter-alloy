@@ -9,9 +9,13 @@ module.exports = grammar({
 
     declaration: ($) =>
       choice(
-        $.sig_decl
+        $.sig_decl,
+        $.enum_decl
         // TODO implement the rest of these
       ),
+
+    enum_decl: ($) =>
+      seq("enum", $.name, "{", optional(repeat(seq($.name, ","))), $.name, "}"),
 
     sig_decl: ($) =>
       seq(
