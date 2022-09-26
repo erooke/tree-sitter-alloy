@@ -1,0 +1,14 @@
+=====
+Module
+=====
+
+module this/examples/tutorial/farmer
+
+---
+
+(source_file
+  (module_decl
+    (qual_name
+      (name)
+      (name)
+      (name))))
