@@ -1,3 +1,11 @@
+const binary = (left, op, right) => {
+  return seq(
+    field("left", left),
+    field("operator", op),
+    field("right", right)
+  )
+}
+
 module.exports = grammar({
   name: "Alloy",
 
@@ -15,9 +23,44 @@ module.exports = grammar({
         // TODO implement the rest of these
       ),
 
-    expression: $ => choice(
-      $.constant_expression
+    _expression: $ => choice(
+      $.constant_expression,
+      $.qual_name,
+      $.binary_expression,
     ),
+
+    binary_expression: ($) => {
+      const comparison = seq(
+        optional(choice("!", "not")),
+        choice("in", "=", "<", ">", "=", "<=", ">=")
+      );
+      const table = [
+        [19, "."],
+        [17, choice("<:", ":>")],
+        [16, "->"],
+        [15, "&"],
+        [14, "++"],
+        [12, choice("+", "-")],
+        [09, comparison],
+        [07, choice("until", "releases", "since", "triggered")],
+        [06, choice("&&", "and")],
+        [04, choice("<=>", "iff")],
+        [03, choice("||", "or")],
+        [01, ";"],
+      ];
+      return choice(
+        ...table.map(([precidence, operator]) => {
+          return prec.left(
+            precidence,
+            seq(
+              field("left", $._expression),
+              field("operator", operator),
+              field("right", $._expression)
+            )
+          );
+        })
+      );
+    },
 
     constant_expression: $ => choice(
       seq(optional("-"), /[0-9]+/),
@@ -26,7 +69,9 @@ module.exports = grammar({
       "iden",
     ),
 
-    block: $ => seq("{", "}"), // TODO process expressions
+    block: $ => seq("{",
+      optional($._expression),
+      "}"), // TODO process expressions
 
     fact_decl: ($) =>
       seq("fact", field("name", optional($.name)), $.block),
