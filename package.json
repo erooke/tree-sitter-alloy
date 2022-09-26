@@ -16,5 +16,16 @@
   "devDependencies": {
     "prettier": "^2.7.1",
     "tree-sitter-cli": "^0.20.7"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.alloy",
+      "file-types": [
+        "als"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ]
 }
