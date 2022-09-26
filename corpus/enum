@@ -1,0 +1,15 @@
+=====
+Module
+=====
+
+enum A { B, C, D }
+
+---
+
+(source_file
+  (declaration
+    (enum_decl
+      (name)
+      (name)
+      (name)
+      (name))))
