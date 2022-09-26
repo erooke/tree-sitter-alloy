@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-alloy",
+  "version": "1.0.0",
+  "description": "A tree sitter grammar for alloy",
+  "main": "bindings/node",
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test"
+  },
+  "author": "Ethan Rooke <ethan@roo.ke>",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.16.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "tree-sitter-cli": "^0.20.7"
+  }
+}
