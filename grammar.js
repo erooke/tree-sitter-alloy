@@ -1,10 +1,6 @@
 const binary = (left, op, right) => {
-  return seq(
-    field("left", left),
-    field("operator", op),
-    field("right", right)
-  )
-}
+  return seq(field("left", left), field("operator", op), field("right", right));
+};
 
 module.exports = grammar({
   name: "Alloy",
@@ -25,11 +21,13 @@ module.exports = grammar({
         // TODO implement the rest of these
       ),
 
-    _expression: $ => choice(
-      $.constant_expression,
-      $.qual_name,
-      $.binary_expression,
-    ),
+    _expression: ($) =>
+      choice(
+        $.unary_expression,
+        $.constant_expression,
+        $.qual_name,
+        $.binary_expression
+      ),
 
     binary_expression: ($) => {
       const comparison = seq(
@@ -64,19 +62,43 @@ module.exports = grammar({
       );
     },
 
-    constant_expression: $ => choice(
-      seq(optional("-"), /[0-9]+/),
-      "none",
-      "univ",
-      "iden",
-    ),
+    unary_expression: ($) => {
+      const table = [
+        [21, choice("~", "^", "*")],
+        [13, "#"],
+        [11, choice("no", "some", "lone", "one", "set")],
+        [
+          08,
+          choice(
+            "!",
+            "not",
+            "always",
+            "eventually",
+            "after",
+            "before",
+            "historically",
+            "once"
+          ),
+        ],
+        [02, choice("let", "no", "some", "lone", "one", "sum")],
+      ];
 
-    block: $ => seq("{",
-      optional($._expression),
-      "}"), // TODO process expressions
+      return choice(
+        ...table.map(([precidence, operator]) => {
+          return prec(
+            precidence,
+            seq(field("operator", operator), field("operand", $._expression))
+          );
+        })
+      );
+    },
 
-    fact_decl: ($) =>
-      seq("fact", field("name", optional($.name)), $.block),
+    constant_expression: ($) =>
+      choice(seq(optional("-"), /[0-9]+/), "none", "univ", "iden"),
+
+    block: ($) => seq("{", repeat($._expression), "}"),
+
+    fact_decl: ($) => seq("fact", field("name", optional($.name)), $.block),
 
     enum_decl: ($) =>
       seq("enum", $.name, "{", optional(repeat(seq($.name, ","))), $.name, "}"),
