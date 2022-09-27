@@ -132,7 +132,7 @@ module.exports = grammar({
         commaRepeat($.name),
         ":",
         optional("disjoint"),
-        $._expression
+        field("type", $._expression)
       ),
 
     mult: (_) => choice("lone", "some", "one"),

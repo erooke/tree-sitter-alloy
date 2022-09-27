@@ -37,3 +37,6 @@
 (name) @variable
 (number) @number
 (comment) @comment
+
+(field_decl
+  type: (_) @type)
