@@ -1,7 +1,3 @@
-const binary = (left, op, right) => {
-  return seq(field("left", left), field("operator", op), field("right", right));
-};
-
 module.exports = grammar({
   name: "Alloy",
 
