@@ -18,8 +18,17 @@ module.exports = grammar({
         $.sig_decl,
         $.enum_decl,
         $.fact_decl,
-        $.fun_decl
+        $.fun_decl,
+        $.pred_decl
         // TODO implement the rest of these
+      ),
+
+    pred_decl: ($) =>
+      seq(
+        "pred",
+        $.name,
+        //TODO add paradecls
+        $.block
       ),
 
     fun_decl: ($) =>

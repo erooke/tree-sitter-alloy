@@ -20,6 +20,7 @@
   "no"
   "none"
   "not"
+  "pred"
   "once"
   "one"
   "or"
