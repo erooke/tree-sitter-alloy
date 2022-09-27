@@ -9,6 +9,7 @@
   "eventually"
   "extends"
   "fact"
+  "fun"
   "historically"
   "iden"
   "iff"
