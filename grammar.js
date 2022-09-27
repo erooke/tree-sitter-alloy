@@ -93,8 +93,9 @@ module.exports = grammar({
       );
     },
 
-    constant_expression: (_) =>
-      choice(seq(optional("-"), /[0-9]+/), "none", "univ", "iden"),
+    constant_expression: ($) => choice($.number, "none", "univ", "iden"),
+
+    number: (_) => seq(optional("-"), /[0-9]+/),
 
     block: ($) => seq("{", repeat($._expression), "}"),
 
@@ -127,7 +128,7 @@ module.exports = grammar({
     field_decl: ($) =>
       seq(
         optional("var"),
-        optional("disjoint"),
+        optional("disj"),
         commaRepeat($.name),
         ":",
         optional("disjoint"),
