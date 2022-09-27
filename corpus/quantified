@@ -1,0 +1,21 @@
+====
+Basic
+====
+
+fact {
+  all a: A { a in B }
+}
+
+---
+
+(source_file
+  (fact_decl
+    (block
+      (quantified_expression
+        (decl
+          (name)
+          (qual_name))
+        (block
+          (binary_expression
+            (qual_name)
+            (qual_name)))))))

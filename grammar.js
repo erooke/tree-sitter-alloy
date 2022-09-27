@@ -7,6 +7,8 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
+  conflicts: ($) => [[$.unary_expression, $.quantified_expression]],
+
   rules: {
     source_file: ($) =>
       seq(optional($.module_decl), optional(repeat($._declaration))),
@@ -55,11 +57,19 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.binary_expression,
+        $.quantified_expression,
         $.unary_expression,
         $.constant_expression,
         $.qual_name,
-        $.binary_expression,
         $.prime_expression
+      ),
+
+    quantified_expression: ($) =>
+      seq(
+        field("quantifier", choice("no", "all", "sum", "mult")),
+        commaRepeat($.decl),
+        choice($.block, seq("|", $._expression))
       ),
 
     prime_expression: ($) => prec(20, seq($._expression, "'")),
