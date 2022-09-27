@@ -21,7 +21,6 @@ module.exports = grammar({
         $.fun_decl,
         $.pred_decl,
         $.cmd_decl
-        // TODO implement the rest of these
       ),
 
     cmd_decl: ($) =>
@@ -40,19 +39,13 @@ module.exports = grammar({
 
     typescope: ($) => seq(optional("exactly"), $.number, $.qual_name),
 
-    pred_decl: ($) =>
-      seq(
-        "pred",
-        $.name,
-        //TODO add paradecls
-        $.block
-      ),
+    pred_decl: ($) => seq("pred", $.name, optional($.para_decls), $.block),
 
     fun_decl: ($) =>
       seq(
         "fun",
         $.name,
-        //TODO add paradecls
+        optional($.para_decls),
         ":",
         $._expression,
         "{",
@@ -164,15 +157,22 @@ module.exports = grammar({
         seq("in", optional(repeat(seq($.qual_name, "+"))), $.qual_name)
       ),
 
-    field_decl: ($) =>
+    decl: ($) =>
       seq(
-        optional("var"),
         optional("disj"),
         commaRepeat($.name),
         ":",
-        optional("disjoint"),
+        optional("disj"),
         field("type", $._expression)
       ),
+
+    para_decls: ($) =>
+      choice(
+        seq("(", commaRepeat($.decl), ")"),
+        seq("[", commaRepeat($.decl), "]")
+      ),
+
+    field_decl: ($) => seq(optional("var"), $.decl),
 
     mult: (_) => choice("lone", "some", "one"),
 
