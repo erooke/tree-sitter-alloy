@@ -28,9 +28,17 @@ module.exports = grammar({
       seq(
         optional(seq($.name, ":")),
         choice("run", "check"),
-        choice($.qual_name, $.block)
-        //TODO add scope
+        choice($.qual_name, $.block),
+        optional($.scope)
       ),
+
+    scope: ($) =>
+      choice(
+        seq("for", $.number, optional(seq("but", commaRepeat($.typescope)))),
+        seq("for", commaRepeat($.typescope))
+      ),
+
+    typescope: ($) => seq(optional("exactly"), $.number, $.qual_name),
 
     pred_decl: ($) =>
       seq(
