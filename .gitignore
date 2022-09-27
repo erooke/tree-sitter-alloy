@@ -1,8 +1,4 @@
 test.als
 out.html
 node_modules
-Cargo.toml
 build
-*.gyp
-bindings
-src
