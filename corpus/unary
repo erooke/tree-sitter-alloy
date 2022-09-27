@@ -44,3 +44,21 @@ fact {
         (binary_expression
           (qual_name)
           (qual_name))))))
+
+====
+Prime
+====
+
+fact {
+  a.b'
+}
+
+---
+
+(source_file
+  (fact_decl
+    (block
+      (binary_expression
+        (qual_name)
+        (prime_expression
+          (qual_name))))))
