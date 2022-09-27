@@ -16,11 +16,15 @@
             "named": true
           },
           {
+            "type": "name",
+            "named": true
+          },
+          {
             "type": "prime_expression",
             "named": true
           },
           {
-            "type": "qual_name",
+            "type": "quantified_expression",
             "named": true
           },
           {
@@ -156,11 +160,15 @@
             "named": true
           },
           {
+            "type": "name",
+            "named": true
+          },
+          {
             "type": "prime_expression",
             "named": true
           },
           {
-            "type": "qual_name",
+            "type": "quantified_expression",
             "named": true
           },
           {
@@ -188,11 +196,15 @@
           "named": true
         },
         {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "prime_expression",
           "named": true
         },
         {
-          "type": "qual_name",
+          "type": "quantified_expression",
           "named": true
         },
         {
@@ -216,10 +228,6 @@
         },
         {
           "type": "name",
-          "named": true
-        },
-        {
-          "type": "qual_name",
           "named": true
         },
         {
@@ -261,11 +269,15 @@
             "named": true
           },
           {
+            "type": "name",
+            "named": true
+          },
+          {
             "type": "prime_expression",
             "named": true
           },
           {
-            "type": "qual_name",
+            "type": "quantified_expression",
             "named": true
           },
           {
@@ -371,7 +383,7 @@
           "named": true
         },
         {
-          "type": "qual_name",
+          "type": "quantified_expression",
           "named": true
         },
         {
@@ -390,7 +402,7 @@
       "required": true,
       "types": [
         {
-          "type": "qual_name",
+          "type": "name",
           "named": true
         }
       ]
@@ -461,11 +473,81 @@
           "named": true
         },
         {
+          "type": "name",
+          "named": true
+        },
+        {
           "type": "prime_expression",
           "named": true
         },
         {
-          "type": "qual_name",
+          "type": "quantified_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quantified_expression",
+    "named": true,
+    "fields": {
+      "quantifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "all",
+            "named": false
+          },
+          {
+            "type": "mult",
+            "named": false
+          },
+          {
+            "type": "no",
+            "named": false
+          },
+          {
+            "type": "sum",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "constant_expression",
+          "named": true
+        },
+        {
+          "type": "decl",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "prime_expression",
+          "named": true
+        },
+        {
+          "type": "quantified_expression",
           "named": true
         },
         {
@@ -534,7 +616,7 @@
       "required": true,
       "types": [
         {
-          "type": "qual_name",
+          "type": "name",
           "named": true
         }
       ]
@@ -588,11 +670,11 @@
       "required": true,
       "types": [
         {
-          "type": "number",
+          "type": "name",
           "named": true
         },
         {
-          "type": "qual_name",
+          "type": "number",
           "named": true
         }
       ]
@@ -615,11 +697,15 @@
             "named": true
           },
           {
+            "type": "name",
+            "named": true
+          },
+          {
             "type": "prime_expression",
             "named": true
           },
           {
-            "type": "qual_name",
+            "type": "quantified_expression",
             "named": true
           },
           {
@@ -829,6 +915,10 @@
     "named": false
   },
   {
+    "type": "all",
+    "named": false
+  },
+  {
     "type": "always",
     "named": false
   },
@@ -913,6 +1003,10 @@
     "named": false
   },
   {
+    "type": "mult",
+    "named": false
+  },
+  {
     "type": "name",
     "named": true
   },
@@ -943,10 +1037,6 @@
   {
     "type": "pred",
     "named": false
-  },
-  {
-    "type": "qual_name",
-    "named": true
   },
   {
     "type": "releases",
@@ -994,6 +1084,10 @@
   },
   {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   },
   {

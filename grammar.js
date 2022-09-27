@@ -7,11 +7,17 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
+  conflicts: ($) => [
+    [$.decl, $._expression],
+    [$.unary_expression, $.quantified_expression],
+    [$.scope, $.typescope],
+  ],
+
   rules: {
     source_file: ($) =>
       seq(optional($.module_decl), optional(repeat($._declaration))),
 
-    module_decl: ($) => seq("module", $.qual_name),
+    module_decl: ($) => seq("module", $.name),
 
     _declaration: ($) =>
       choice(
@@ -27,7 +33,7 @@ module.exports = grammar({
       seq(
         optional(seq($.name, ":")),
         choice("run", "check"),
-        choice($.qual_name, $.block),
+        choice($.name, $.block),
         optional($.scope)
       ),
 
@@ -37,7 +43,7 @@ module.exports = grammar({
         seq("for", commaRepeat($.typescope))
       ),
 
-    typescope: ($) => seq(optional("exactly"), $.number, $.qual_name),
+    typescope: ($) => seq(optional("exactly"), $.number, $.name),
 
     pred_decl: ($) => seq("pred", $.name, optional($.para_decls), $.block),
 
@@ -55,11 +61,19 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.binary_expression,
+        $.quantified_expression,
         $.unary_expression,
         $.constant_expression,
-        $.qual_name,
-        $.binary_expression,
+        $.name,
         $.prime_expression
+      ),
+
+    quantified_expression: ($) =>
+      seq(
+        field("quantifier", choice("no", "all", "sum", "mult")),
+        commaRepeat($.decl),
+        choice($.block, seq("|", $._expression))
       ),
 
     prime_expression: ($) => prec(20, seq($._expression, "'")),
@@ -156,8 +170,8 @@ module.exports = grammar({
 
     sig_extension: ($) =>
       choice(
-        seq("extends", $.qual_name),
-        seq("in", optional(repeat(seq($.qual_name, "+"))), $.qual_name)
+        seq("extends", $.name),
+        seq("in", optional(repeat(seq($.name, "+"))), $.name)
       ),
 
     decl: ($) =>
@@ -180,15 +194,6 @@ module.exports = grammar({
     mult: (_) => choice("lone", "some", "one"),
 
     name: (_) => /[a-zA-Z0-9_]+/,
-
-    qual_name: (_) =>
-      token(
-        seq(
-          optional("this/"),
-          repeat(seq(/[a-zA-Z0-9_]+/, "/")),
-          /[a-zA-Z0-9_]+/
-        )
-      ),
 
     comment: (_) =>
       token(

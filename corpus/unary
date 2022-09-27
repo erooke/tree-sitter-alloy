@@ -16,15 +16,15 @@ fact {
   (fact_decl
     (block
       (unary_expression
-        (qual_name))
+        (name))
       (unary_expression
-        (qual_name))
+        (name))
       (unary_expression
-        (qual_name))
+        (name))
       (unary_expression
-        (qual_name))
+        (name))
       (unary_expression
-        (qual_name)))))
+        (name)))))
 
 
 ====
@@ -42,8 +42,8 @@ fact {
     (block
       (unary_expression
         (binary_expression
-          (qual_name)
-          (qual_name))))))
+          (name)
+          (name))))))
 
 ====
 Prime
@@ -59,6 +59,6 @@ fact {
   (fact_decl
     (block
       (binary_expression
-        (qual_name)
+        (name)
         (prime_expression
-          (qual_name))))))
+          (name))))))

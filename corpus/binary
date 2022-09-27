@@ -10,10 +10,10 @@ fact { a + b & c }
   (fact_decl
     (block
       (binary_expression
-        left: (qual_name)
+        left: (name)
         right: (binary_expression
-          left: (qual_name)
-          right: (qual_name)
+          left: (name)
+          right: (name)
         )))))
 
 =====
@@ -30,5 +30,5 @@ fact {
   (fact_decl
     (block
       (binary_expression
-        left: (qual_name)
-        right: (qual_name)))))
+        left: (name)
+        right: (name)))))

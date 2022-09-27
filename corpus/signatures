@@ -75,7 +75,7 @@ abstract sig Object, Object2 extends Object3 {}
     (name)
     (name)
     (sig_extension
-      (qual_name))))
+      (name))))
 
 
 =====
@@ -91,8 +91,8 @@ abstract sig Object, Object2 in Object3 + Object4{}
     (name)
     (name)
     (sig_extension
-      (qual_name)
-      (qual_name))))
+      (name)
+      (name))))
 
 ====
 Fields
@@ -120,19 +120,19 @@ sig C {
         (decl
           (name)
           (unary_expression
-            (qual_name)))))
+            (name)))))
   (sig_decl
     (name)
     (field_decl
       (decl
         (name)
         (unary_expression
-          (qual_name))))
+          (name))))
     (field_decl
       (decl
         (name)
         (unary_expression
-          (qual_name))))))
+          (name))))))
 
 ====
 Block
@@ -150,7 +150,7 @@ sig B { a: one A }{ a.b in iden }
       (decl
         (name)
         (unary_expression
-          (qual_name))))
+          (name))))
     (block))
   (sig_decl
     (name)
@@ -158,10 +158,10 @@ sig B { a: one A }{ a.b in iden }
       (decl
         (name)
         (unary_expression
-          (qual_name))))
+          (name))))
     (block
       (binary_expression
         (binary_expression
-          (qual_name)
-          (qual_name))
+          (name)
+          (name))
         (constant_expression)))))
