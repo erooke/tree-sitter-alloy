@@ -19,8 +19,17 @@ module.exports = grammar({
         $.enum_decl,
         $.fact_decl,
         $.fun_decl,
-        $.pred_decl
+        $.pred_decl,
+        $.cmd_decl
         // TODO implement the rest of these
+      ),
+
+    cmd_decl: ($) =>
+      seq(
+        optional(seq($.name, ":")),
+        choice("run", "check"),
+        choice($.qual_name, $.block)
+        //TODO add scope
       ),
 
     pred_decl: ($) =>
