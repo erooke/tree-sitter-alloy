@@ -3,7 +3,7 @@ const commaRepeat = (expression) => {
 };
 
 module.exports = grammar({
-  name: "Alloy",
+  name: "alloy",
 
   extras: ($) => [$.comment, /\s/],
 
