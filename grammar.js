@@ -1,3 +1,7 @@
+const commaRepeat = (expression) => {
+  return seq(repeat(seq(expression, ",")), expression);
+};
+
 module.exports = grammar({
   name: "Alloy",
 
@@ -109,14 +113,25 @@ module.exports = grammar({
         $.name,
         optional($.sig_extension),
         "{",
-        // TODO: field declarations
-        "}"
+        optional(commaRepeat($.field_decl)),
+        "}",
+        optional($.block)
       ),
 
     sig_extension: ($) =>
       choice(
         seq("extends", $.qual_name),
         seq("in", optional(repeat(seq($.qual_name, "+"))), $.qual_name)
+      ),
+
+    field_decl: ($) =>
+      seq(
+        optional("var"),
+        optional("disjoint"),
+        commaRepeat($.name),
+        ":",
+        optional("disjoint"),
+        $._expression
       ),
 
     mult: ($) => choice("lone", "some", "one"),
