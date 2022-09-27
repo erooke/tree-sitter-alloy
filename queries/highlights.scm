@@ -45,5 +45,5 @@
 (number) @number
 (comment) @comment
 
-(field_decl
+(decl
   type: (_) @type)

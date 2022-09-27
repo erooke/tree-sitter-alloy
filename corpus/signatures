@@ -117,19 +117,22 @@ sig C {
   (sig_decl
       (name)
       (field_decl
-        (name)
-        (unary_expression
-          (qual_name))))
+        (decl
+          (name)
+          (unary_expression
+            (qual_name)))))
   (sig_decl
     (name)
     (field_decl
-          (name)
-          (unary_expression
-            (qual_name)))
+      (decl
+        (name)
+        (unary_expression
+          (qual_name))))
     (field_decl
-      (name)
-      (unary_expression
-        (qual_name)))))
+      (decl
+        (name)
+        (unary_expression
+          (qual_name))))))
 
 ====
 Block
@@ -144,16 +147,18 @@ sig B { a: one A }{ a.b in iden }
   (sig_decl
     (name)
     (field_decl
-      (name)
-      (unary_expression
-        (qual_name)))
+      (decl
+        (name)
+        (unary_expression
+          (qual_name))))
     (block))
   (sig_decl
     (name)
     (field_decl
-      (name)
-      (unary_expression
-        (qual_name)))
+      (decl
+        (name)
+        (unary_expression
+          (qual_name))))
     (block
       (binary_expression
         (binary_expression
