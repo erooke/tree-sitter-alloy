@@ -93,7 +93,7 @@ module.exports = grammar({
       );
     },
 
-    constant_expression: ($) =>
+    constant_expression: (_) =>
       choice(seq(optional("-"), /[0-9]+/), "none", "univ", "iden"),
 
     block: ($) => seq("{", repeat($._expression), "}"),
@@ -134,11 +134,11 @@ module.exports = grammar({
         $._expression
       ),
 
-    mult: ($) => choice("lone", "some", "one"),
+    mult: (_) => choice("lone", "some", "one"),
 
-    name: ($) => /[a-zA-Z0-9_]+/,
+    name: (_) => /[a-zA-Z0-9_]+/,
 
-    qual_name: ($) =>
+    qual_name: (_) =>
       token(
         seq(
           optional("this/"),
@@ -147,7 +147,7 @@ module.exports = grammar({
         )
       ),
 
-    comment: ($) =>
+    comment: (_) =>
       token(
         choice(seq("--", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))
       ),
