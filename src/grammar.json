@@ -1,5 +1,5 @@
 {
-  "name": "Alloy",
+  "name": "alloy",
   "rules": {
     "source_file": {
       "type": "SEQ",
