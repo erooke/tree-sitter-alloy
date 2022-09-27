@@ -58,8 +58,11 @@ module.exports = grammar({
         $.unary_expression,
         $.constant_expression,
         $.qual_name,
-        $.binary_expression
+        $.binary_expression,
+        $.prime_expression
       ),
+
+    prime_expression: ($) => prec(20, seq($._expression, "'")),
 
     binary_expression: ($) => {
       const comparison = seq(
