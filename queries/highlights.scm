@@ -41,7 +41,6 @@
   "var"
 ] @keyword
 
-(name) @variable
 (number) @number
 (comment) @comment
 
