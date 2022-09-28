@@ -1,8 +1,18 @@
 [
+  "'"
+  "+"
+  ";"
+  "and"
+  "in"
+  "not"
+  "or"
+  "#"
+] @operator
+
+[
   "abstract"
   "after"
   "always"
-  "and"
   "before"
   "but"
   "check"
@@ -17,16 +27,13 @@
   "historically"
   "iden"
   "iff"
-  "in"
   "let"
   "lone"
   "module"
   "no"
   "none"
-  "not"
   "once"
   "one"
-  "or"
   "pred"
   "releases"
   "run"
@@ -40,6 +47,12 @@
   "until"
   "var"
 ] @keyword
+
+[
+ "iden"
+ "none"
+ "univ"
+] @constant.builtin
 
 (number) @number
 (comment) @comment
