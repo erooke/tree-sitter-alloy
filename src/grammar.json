@@ -387,6 +387,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "implication_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "quantified_expression"
         },
         {
@@ -415,6 +419,57 @@
           ]
         }
       ]
+    },
+    "implication_expression": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "=>"
+              },
+              {
+                "type": "STRING",
+                "value": "implies"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "else"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expression"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "function_call": {
       "type": "SEQ",
@@ -1915,6 +1970,10 @@
     ],
     [
       "function_call",
+      "quantified_expression"
+    ],
+    [
+      "implication_expression",
       "quantified_expression"
     ],
     [

@@ -11,6 +11,7 @@ module.exports = grammar({
     [$.decl, $._expression],
     [$.unary_expression, $.quantified_expression],
     [$.function_call, $.quantified_expression],
+    [$.implication_expression, $.quantified_expression],
     [$.scope, $.typescope],
   ],
 
@@ -68,10 +69,21 @@ module.exports = grammar({
         $.unary_expression,
         $.binary_expression,
         $.function_call,
+        $.implication_expression,
         $.quantified_expression,
         $.prime_expression,
         $.block,
         seq("(", $._expression, ")")
+      ),
+
+    implication_expression: ($) =>
+      prec.right(
+        seq(
+          $._expression,
+          choice("=>", "implies"),
+          $._expression,
+          optional(seq("else", $._expression))
+        )
       ),
 
     function_call: ($) =>
