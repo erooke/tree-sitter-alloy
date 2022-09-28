@@ -5,74 +5,18 @@ const commaRepeat = (expression) => {
 module.exports = grammar({
   name: "alloy",
 
-  extras: ($) => [$.comment, /\s/],
-
-  conflicts: ($) => [[$.unary_expression, $.quantified_expression]],
-
   rules: {
-    source_file: ($) =>
-      seq(optional($.module_decl), optional(repeat($._declaration))),
-
-    module_decl: ($) => seq("module", $.qual_name),
-
-    _declaration: ($) =>
-      choice(
-        $.sig_decl,
-        $.enum_decl,
-        $.fact_decl,
-        $.fun_decl,
-        $.pred_decl,
-        $.cmd_decl
-      ),
-
-    cmd_decl: ($) =>
-      seq(
-        optional(seq($.name, ":")),
-        choice("run", "check"),
-        choice($.qual_name, $.block),
-        optional($.scope)
-      ),
-
-    scope: ($) =>
-      choice(
-        seq("for", $.number, optional(seq("but", commaRepeat($.typescope)))),
-        seq("for", commaRepeat($.typescope))
-      ),
-
-    typescope: ($) => seq(optional("exactly"), $.number, $.qual_name),
-
-    pred_decl: ($) => seq("pred", $.name, optional($.para_decls), $.block),
-
-    fun_decl: ($) =>
-      seq(
-        "fun",
-        $.name,
-        optional($.para_decls),
-        ":",
-        $._expression,
-        "{",
-        $._expression,
-        "}"
-      ),
+    source_file: ($) => repeat($._expression),
 
     _expression: ($) =>
-      choice(
-        $.binary_expression,
-        $.quantified_expression,
-        $.unary_expression,
-        $.constant_expression,
-        $.qual_name,
-        $.prime_expression
-      ),
+      choice($.binary_expression, $.quantified_expression, $.unary_expression),
 
     quantified_expression: ($) =>
       seq(
-        field("quantifier", choice("no", "all", "sum", "mult")),
+        field("quantifier", choice("all", "sum", "mult")),
         commaRepeat($.decl),
         choice($.block, seq("|", $._expression))
       ),
-
-    prime_expression: ($) => prec(20, seq($._expression, "'")),
 
     binary_expression: ($) => {
       const comparison = seq(
@@ -138,37 +82,10 @@ module.exports = grammar({
       );
     },
 
-    constant_expression: ($) => choice($.number, "none", "univ", "iden"),
-
     number: (_) => seq(optional("-"), /[0-9]+/),
 
     block: ($) => seq("{", repeat($._expression), "}"),
-
-    fact_decl: ($) => seq("fact", field("name", optional($.name)), $.block),
-
-    enum_decl: ($) =>
-      seq("enum", $.name, "{", optional(repeat(seq($.name, ","))), $.name, "}"),
-
-    sig_decl: ($) =>
-      seq(
-        optional("var"),
-        optional("abstract"),
-        optional($.mult),
-        "sig",
-        optional(repeat(seq($.name, ","))),
-        $.name,
-        optional($.sig_extension),
-        "{",
-        optional(commaRepeat($.field_decl)),
-        "}",
-        optional($.block)
-      ),
-
-    sig_extension: ($) =>
-      choice(
-        seq("extends", $.qual_name),
-        seq("in", optional(repeat(seq($.qual_name, "+"))), $.qual_name)
-      ),
+    bar: ($) => seq("|", $._expression),
 
     decl: ($) =>
       seq(
@@ -190,19 +107,5 @@ module.exports = grammar({
     mult: (_) => choice("lone", "some", "one"),
 
     name: (_) => /[a-zA-Z0-9_]+/,
-
-    qual_name: (_) =>
-      token(
-        seq(
-          optional("this/"),
-          repeat(seq(/[a-zA-Z0-9_]+/, "/")),
-          /[a-zA-Z0-9_]+/
-        )
-      ),
-
-    comment: (_) =>
-      token(
-        choice(seq("--", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))
-      ),
   },
 });

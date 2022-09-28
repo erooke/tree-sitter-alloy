@@ -12,18 +12,6 @@
             "named": true
           },
           {
-            "type": "constant_expression",
-            "named": true
-          },
-          {
-            "type": "prime_expression",
-            "named": true
-          },
-          {
-            "type": "qual_name",
-            "named": true
-          },
-          {
             "type": "quantified_expression",
             "named": true
           },
@@ -156,18 +144,6 @@
             "named": true
           },
           {
-            "type": "constant_expression",
-            "named": true
-          },
-          {
-            "type": "prime_expression",
-            "named": true
-          },
-          {
-            "type": "qual_name",
-            "named": true
-          },
-          {
             "type": "quantified_expression",
             "named": true
           },
@@ -192,65 +168,11 @@
           "named": true
         },
         {
-          "type": "constant_expression",
-          "named": true
-        },
-        {
-          "type": "prime_expression",
-          "named": true
-        },
-        {
-          "type": "qual_name",
-          "named": true
-        },
-        {
           "type": "quantified_expression",
           "named": true
         },
         {
           "type": "unary_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "cmd_decl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "qual_name",
-          "named": true
-        },
-        {
-          "type": "scope",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "constant_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "number",
           "named": true
         }
       ]
@@ -266,18 +188,6 @@
         "types": [
           {
             "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "constant_expression",
-            "named": true
-          },
-          {
-            "type": "prime_expression",
-            "named": true
-          },
-          {
-            "type": "qual_name",
             "named": true
           },
           {
@@ -303,203 +213,6 @@
     }
   },
   {
-    "type": "enum_decl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "fact_decl",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "name",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "field_decl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "decl",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "fun_decl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "constant_expression",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "para_decls",
-          "named": true
-        },
-        {
-          "type": "prime_expression",
-          "named": true
-        },
-        {
-          "type": "qual_name",
-          "named": true
-        },
-        {
-          "type": "quantified_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "module_decl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "qual_name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "mult",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "number",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "para_decls",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "decl",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "pred_decl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "para_decls",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prime_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "constant_expression",
-          "named": true
-        },
-        {
-          "type": "prime_expression",
-          "named": true
-        },
-        {
-          "type": "qual_name",
-          "named": true
-        },
-        {
-          "type": "quantified_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "quantified_expression",
     "named": true,
     "fields": {
@@ -513,10 +226,6 @@
           },
           {
             "type": "mult",
-            "named": false
-          },
-          {
-            "type": "no",
             "named": false
           },
           {
@@ -539,19 +248,7 @@
           "named": true
         },
         {
-          "type": "constant_expression",
-          "named": true
-        },
-        {
           "type": "decl",
-          "named": true
-        },
-        {
-          "type": "prime_expression",
-          "named": true
-        },
-        {
-          "type": "qual_name",
           "named": true
         },
         {
@@ -566,71 +263,6 @@
     }
   },
   {
-    "type": "scope",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "typescope",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "sig_decl",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "field_decl",
-          "named": true
-        },
-        {
-          "type": "mult",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "sig_extension",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "sig_extension",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "qual_name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -639,50 +271,15 @@
       "required": false,
       "types": [
         {
-          "type": "cmd_decl",
+          "type": "binary_expression",
           "named": true
         },
         {
-          "type": "enum_decl",
+          "type": "quantified_expression",
           "named": true
         },
         {
-          "type": "fact_decl",
-          "named": true
-        },
-        {
-          "type": "fun_decl",
-          "named": true
-        },
-        {
-          "type": "module_decl",
-          "named": true
-        },
-        {
-          "type": "pred_decl",
-          "named": true
-        },
-        {
-          "type": "sig_decl",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "typescope",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "qual_name",
+          "type": "unary_expression",
           "named": true
         }
       ]
@@ -698,18 +295,6 @@
         "types": [
           {
             "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "constant_expression",
-            "named": true
-          },
-          {
-            "type": "prime_expression",
-            "named": true
-          },
-          {
-            "type": "qual_name",
             "named": true
           },
           {
@@ -823,10 +408,6 @@
     "named": false
   },
   {
-    "type": "'",
-    "named": false
-  },
-  {
     "type": "(",
     "named": false
   },
@@ -915,10 +496,6 @@
     "named": false
   },
   {
-    "type": "abstract",
-    "named": false
-  },
-  {
     "type": "after",
     "named": false
   },
@@ -939,23 +516,7 @@
     "named": false
   },
   {
-    "type": "but",
-    "named": false
-  },
-  {
-    "type": "check",
-    "named": false
-  },
-  {
-    "type": "comment",
-    "named": true
-  },
-  {
     "type": "disj",
-    "named": false
-  },
-  {
-    "type": "enum",
     "named": false
   },
   {
@@ -963,31 +524,7 @@
     "named": false
   },
   {
-    "type": "exactly",
-    "named": false
-  },
-  {
-    "type": "extends",
-    "named": false
-  },
-  {
-    "type": "fact",
-    "named": false
-  },
-  {
-    "type": "for",
-    "named": false
-  },
-  {
-    "type": "fun",
-    "named": false
-  },
-  {
     "type": "historically",
-    "named": false
-  },
-  {
-    "type": "iden",
     "named": false
   },
   {
@@ -1007,10 +544,6 @@
     "named": false
   },
   {
-    "type": "module",
-    "named": false
-  },
-  {
     "type": "mult",
     "named": false
   },
@@ -1020,10 +553,6 @@
   },
   {
     "type": "no",
-    "named": false
-  },
-  {
-    "type": "none",
     "named": false
   },
   {
@@ -1043,27 +572,11 @@
     "named": false
   },
   {
-    "type": "pred",
-    "named": false
-  },
-  {
-    "type": "qual_name",
-    "named": true
-  },
-  {
     "type": "releases",
     "named": false
   },
   {
-    "type": "run",
-    "named": false
-  },
-  {
     "type": "set",
-    "named": false
-  },
-  {
-    "type": "sig",
     "named": false
   },
   {
@@ -1080,10 +593,6 @@
   },
   {
     "type": "triggered",
-    "named": false
-  },
-  {
-    "type": "univ",
     "named": false
   },
   {
