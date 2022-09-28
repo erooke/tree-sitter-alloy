@@ -1776,6 +1776,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 5:
       if (lookahead == '*') ADVANCE(7);
+      if (lookahead == '/') ADVANCE(408);
       END_STATE();
     case 6:
       if (lookahead == '*') ADVANCE(6);
@@ -4032,6 +4033,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 406:
       ACCEPT_TOKEN(anon_sym_SLASH);
       if (lookahead == '*') ADVANCE(7);
+      if (lookahead == '/') ADVANCE(408);
       END_STATE();
     case 407:
       ACCEPT_TOKEN(sym_comment);
