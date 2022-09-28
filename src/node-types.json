@@ -414,6 +414,11 @@
     "fields": {}
   },
   {
+    "type": "name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "number",
     "named": true,
     "fields": {}
@@ -863,6 +868,10 @@
     "named": false
   },
   {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -1011,10 +1020,6 @@
     "named": false
   },
   {
-    "type": "name",
-    "named": true
-  },
-  {
     "type": "no",
     "named": false
   },
@@ -1068,6 +1073,10 @@
   },
   {
     "type": "sum",
+    "named": false
+  },
+  {
+    "type": "this/",
     "named": false
   },
   {

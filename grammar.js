@@ -174,6 +174,8 @@ module.exports = grammar({
         seq("in", optional(repeat(seq($.name, "+"))), $.name)
       ),
 
+    // Declarations
+
     decl: ($) =>
       seq(
         optional("disj"),
@@ -193,7 +195,12 @@ module.exports = grammar({
 
     mult: (_) => choice("lone", "some", "one"),
 
-    name: (_) => /[a-zA-Z0-9_]+/,
+    name: (_) =>
+      seq(
+        optional("this/"),
+        /[a-zA-Z0-9_]+/,
+        repeat(seq("/", /[a-zA-Z0-9_]+/))
+      ),
 
     comment: (_) =>
       token(
