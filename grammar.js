@@ -103,10 +103,17 @@ module.exports = grammar({
         optional(choice("!", "not")),
         choice("in", "=", "<", ">", "=", "<=", ">=")
       );
+
+      const arrow = seq(
+        optional(choice($.mult, "set")),
+        "->",
+        optional(choice($.mult, "set"))
+      );
+
       const table = [
         [19, "."],
         [17, choice("<:", ":>")],
-        [16, "->"],
+        [16, arrow],
         [15, "&"],
         [14, "++"],
         [12, choice("+", "-")],

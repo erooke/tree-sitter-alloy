@@ -142,6 +142,10 @@
             "named": false
           },
           {
+            "type": "mult",
+            "named": true
+          },
+          {
             "type": "not",
             "named": false
           },
@@ -151,6 +155,10 @@
           },
           {
             "type": "releases",
+            "named": false
+          },
+          {
+            "type": "set",
             "named": false
           },
           {
