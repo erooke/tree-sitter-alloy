@@ -120,8 +120,25 @@
               "name": "name"
             },
             {
-              "type": "SYMBOL",
-              "name": "block"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "name"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "block"
+                }
+              ]
             }
           ]
         },

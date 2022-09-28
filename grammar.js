@@ -34,7 +34,7 @@ module.exports = grammar({
       seq(
         optional(seq($.name, ":")),
         choice("run", "check"),
-        choice($.name, $.block),
+        choice($.name, seq(optional($.name), $.block)),
         optional($.scope)
       ),
 
