@@ -40,6 +40,10 @@
             "named": true
           },
           {
+            "type": "let_expression",
+            "named": true
+          },
+          {
             "type": "name",
             "named": true
           },
@@ -216,6 +220,10 @@
             "named": true
           },
           {
+            "type": "let_expression",
+            "named": true
+          },
+          {
             "type": "name",
             "named": true
           },
@@ -261,6 +269,10 @@
         },
         {
           "type": "implication_expression",
+          "named": true
+        },
+        {
+          "type": "let_expression",
           "named": true
         },
         {
@@ -358,6 +370,10 @@
           },
           {
             "type": "implication_expression",
+            "named": true
+          },
+          {
+            "type": "let_expression",
             "named": true
           },
           {
@@ -475,6 +491,10 @@
           "named": true
         },
         {
+          "type": "let_expression",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         },
@@ -526,6 +546,10 @@
           "named": true
         },
         {
+          "type": "let_expression",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         },
@@ -570,6 +594,116 @@
         },
         {
           "type": "implication_expression",
+          "named": true
+        },
+        {
+          "type": "let_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "prime_expression",
+          "named": true
+        },
+        {
+          "type": "quantified_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "let_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "constant_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "implication_expression",
+          "named": true
+        },
+        {
+          "type": "let_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "prime_expression",
+          "named": true
+        },
+        {
+          "type": "quantified_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "let_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "constant_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "implication_expression",
+          "named": true
+        },
+        {
+          "type": "let_decl",
+          "named": true
+        },
+        {
+          "type": "let_expression",
           "named": true
         },
         {
@@ -688,6 +822,10 @@
           "named": true
         },
         {
+          "type": "let_expression",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         },
@@ -767,6 +905,10 @@
         },
         {
           "type": "implication_expression",
+          "named": true
+        },
+        {
+          "type": "let_expression",
           "named": true
         },
         {
@@ -952,6 +1094,10 @@
             "named": true
           },
           {
+            "type": "let_expression",
+            "named": true
+          },
+          {
             "type": "name",
             "named": true
           },
@@ -1007,10 +1153,6 @@
           },
           {
             "type": "historically",
-            "named": false
-          },
-          {
-            "type": "let",
             "named": false
           },
           {

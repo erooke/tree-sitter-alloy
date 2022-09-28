@@ -70,11 +70,23 @@ module.exports = grammar({
         $.binary_expression,
         $.function_call,
         $.implication_expression,
+        $.let_expression,
         $.quantified_expression,
         $.prime_expression,
         $.block,
         seq("(", $._expression, ")")
       ),
+
+    let_expression: ($) =>
+      prec.right(
+        seq(
+          "let",
+          commaRepeat($.let_decl),
+          choice($.block, seq("|", $._expression))
+        )
+      ),
+
+    let_decl: ($) => seq($.name, "=", $._expression),
 
     implication_expression: ($) =>
       prec.right(
@@ -156,7 +168,7 @@ module.exports = grammar({
             "once"
           ),
         ],
-        [02, choice("let", "no", "some", "lone", "one", "sum")],
+        [02, choice("no", "some", "lone", "one", "sum")],
       ];
 
       return choice(

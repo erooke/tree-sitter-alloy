@@ -1,5 +1,5 @@
 ====
-Basic
+Basic - Block
 ====
 
 fact {
@@ -19,3 +19,48 @@ fact {
           (binary_expression
             (name)
             (name)))))))
+
+
+====
+Basic - Bar
+====
+
+fact {
+  all a: A | a in B 
+}
+
+---
+
+(source_file
+  (fact_decl
+    (block
+      (quantified_expression
+        (decl
+          (name)
+          (name))
+        (binary_expression
+          (name)
+          (name))))))
+
+
+====
+Let
+====
+
+fact {
+  let a = b | b => c else d
+}
+
+---
+
+(source_file
+  (fact_decl
+    (block
+      (let_expression
+        (let_decl
+          (name)
+          (name))
+        (implication_expression
+          (name)
+          (name)
+          (name))))))
