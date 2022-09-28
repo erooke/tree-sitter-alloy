@@ -7,5 +7,21 @@ no b
 ----
 
 (source_file
-  (unaray_expression
+  (unary_expression
     (name)))
+
+====
+two
+====
+
+no b: B | a
+
+----
+
+(source_file
+  (quantified_expression
+    (decl
+      (name)
+      (name))
+    (bar
+      (name))))
