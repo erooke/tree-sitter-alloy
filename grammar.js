@@ -10,6 +10,7 @@ module.exports = grammar({
   conflicts: ($) => [
     [$.decl, $._expression],
     [$.unary_expression, $.quantified_expression],
+    [$.function_call, $.quantified_expression],
     [$.scope, $.typescope],
   ],
 
@@ -61,13 +62,20 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
-        $.binary_expression,
-        $.quantified_expression,
-        $.unary_expression,
         $.constant_expression,
         $.name,
-        $.prime_expression
+        seq("@", $.name),
+        $.unary_expression,
+        $.binary_expression,
+        $.function_call,
+        $.quantified_expression,
+        $.prime_expression,
+        $.block,
+        seq("(", $._expression, ")")
       ),
+
+    function_call: ($) =>
+      seq($._expression, "[", commaRepeat($._expression), "]"),
 
     quantified_expression: ($) =>
       seq(

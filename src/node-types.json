@@ -4,15 +4,35 @@
     "named": true,
     "fields": {
       "left": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
           {
             "type": "binary_expression",
             "named": true
           },
           {
+            "type": "block",
+            "named": true
+          },
+          {
             "type": "constant_expression",
+            "named": true
+          },
+          {
+            "type": "function_call",
             "named": true
           },
           {
@@ -148,15 +168,35 @@
         ]
       },
       "right": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
           {
             "type": "binary_expression",
             "named": true
           },
           {
+            "type": "block",
+            "named": true
+          },
+          {
             "type": "constant_expression",
+            "named": true
+          },
+          {
+            "type": "function_call",
             "named": true
           },
           {
@@ -192,7 +232,15 @@
           "named": true
         },
         {
+          "type": "block",
+          "named": true
+        },
+        {
           "type": "constant_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -257,15 +305,35 @@
     "named": true,
     "fields": {
       "type": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
           {
             "type": "binary_expression",
             "named": true
           },
           {
+            "type": "block",
+            "named": true
+          },
+          {
             "type": "constant_expression",
+            "named": true
+          },
+          {
+            "type": "function_call",
             "named": true
           },
           {
@@ -367,7 +435,15 @@
           "named": true
         },
         {
+          "type": "block",
+          "named": true
+        },
+        {
           "type": "constant_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -376,6 +452,49 @@
         },
         {
           "type": "para_decls",
+          "named": true
+        },
+        {
+          "type": "prime_expression",
+          "named": true
+        },
+        {
+          "type": "quantified_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "constant_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -474,7 +593,15 @@
           "named": true
         },
         {
+          "type": "block",
+          "named": true
+        },
+        {
           "type": "constant_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -549,6 +676,10 @@
         },
         {
           "type": "decl",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -698,15 +829,35 @@
     "named": true,
     "fields": {
       "operand": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "@",
+            "named": false
+          },
           {
             "type": "binary_expression",
             "named": true
           },
           {
+            "type": "block",
+            "named": true
+          },
+          {
             "type": "constant_expression",
+            "named": true
+          },
+          {
+            "type": "function_call",
             "named": true
           },
           {
@@ -909,6 +1060,10 @@
   },
   {
     "type": ">=",
+    "named": false
+  },
+  {
+    "type": "@",
     "named": false
   },
   {
