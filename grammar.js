@@ -71,7 +71,7 @@ module.exports = grammar({
 
     quantified_expression: ($) =>
       seq(
-        field("quantifier", choice("no", "all", "sum", "mult")),
+        field("quantifier", choice("no", "all", "sum", "lone", "some", "one")),
         commaRepeat($.decl),
         choice($.block, seq("|", $._expression))
       ),

@@ -384,7 +384,15 @@
               },
               {
                 "type": "STRING",
-                "value": "mult"
+                "value": "lone"
+              },
+              {
+                "type": "STRING",
+                "value": "some"
+              },
+              {
+                "type": "STRING",
+                "value": "one"
               }
             ]
           }

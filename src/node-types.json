@@ -504,11 +504,19 @@
             "named": false
           },
           {
-            "type": "mult",
+            "type": "lone",
             "named": false
           },
           {
             "type": "no",
+            "named": false
+          },
+          {
+            "type": "one",
+            "named": false
+          },
+          {
+            "type": "some",
             "named": false
           },
           {
@@ -1000,10 +1008,6 @@
   },
   {
     "type": "module",
-    "named": false
-  },
-  {
-    "type": "mult",
     "named": false
   },
   {
