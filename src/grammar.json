@@ -71,7 +71,28 @@
         },
         {
           "type": "SYMBOL",
+          "name": "assert_decl"
+        },
+        {
+          "type": "SYMBOL",
           "name": "cmd_decl"
+        }
+      ]
+    },
+    "assert_decl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "assert"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
         }
       ]
     },

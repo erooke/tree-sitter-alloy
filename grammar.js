@@ -30,8 +30,11 @@ module.exports = grammar({
         $.fact_decl,
         $.fun_decl,
         $.pred_decl,
+        $.assert_decl,
         $.cmd_decl
       ),
+
+    assert_decl: ($) => seq("assert", $.name, $.block),
 
     cmd_decl: ($) =>
       seq(

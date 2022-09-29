@@ -1,5 +1,24 @@
 [
   {
+    "type": "assert_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "binary_expression",
     "named": true,
     "fields": {
@@ -1099,6 +1118,10 @@
       "required": false,
       "types": [
         {
+          "type": "assert_decl",
+          "named": true
+        },
+        {
           "type": "cmd_decl",
           "named": true
         },
@@ -1429,6 +1452,10 @@
   {
     "type": "arrow",
     "named": true
+  },
+  {
+    "type": "assert",
+    "named": false
   },
   {
     "type": "before",

@@ -32,3 +32,31 @@ fact {
       (binary_expression
         left: (name)
         right: (name)))))
+
+====
+Distribution
+====
+
+fact {
+  a.(b+c) = a.b + a.c
+}
+
+----
+
+(source_file
+  (fact_decl
+    (block
+      (binary_expression
+        (binary_expression
+          (name)
+          (binary_expression
+            (name)
+            (name))
+          )
+          (binary_expression
+            (binary_expression
+              (name)
+              (name))
+            (binary_expression
+              (name)
+              (name)))))))

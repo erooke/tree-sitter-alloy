@@ -44,6 +44,28 @@ fact {
 
 
 ====
+Multiple - bar
+====
+
+fact {
+  all a: A, b: B | c
+}
+
+----
+
+(source_file
+  (fact_decl
+    (block
+      (quantified_expression
+        (decl
+          (name)
+          (name))
+        (decl
+          (name)
+          (name))
+        (name)))))
+
+====
 Let
 ====
 
