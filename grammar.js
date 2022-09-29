@@ -110,22 +110,25 @@ module.exports = grammar({
 
     prime_expression: ($) => prec(20, seq($._expression, "'")),
 
+    arrow: (_) =>
+      token(
+        seq(
+          optional(choice("lone", "some", "one", "set")),
+          "->",
+          optional(choice("lone", "some", "one", "set"))
+        )
+      ),
+
     binary_expression: ($) => {
       const comparison = seq(
         optional(choice("!", "not")),
         choice("in", "=", "<", ">", "=", "<=", ">=")
       );
 
-      const arrow = seq(
-        optional(choice($.mult, "set")),
-        "->",
-        optional(choice($.mult, "set"))
-      );
-
       const table = [
         [19, "."],
         [17, choice("<:", ":>")],
-        [16, arrow],
+        [16, $.arrow],
         [15, "&"],
         [14, "++"],
         [12, choice("+", "-")],

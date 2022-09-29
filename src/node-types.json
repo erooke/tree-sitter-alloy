@@ -90,10 +90,6 @@
             "named": false
           },
           {
-            "type": "->",
-            "named": false
-          },
-          {
             "type": ".",
             "named": false
           },
@@ -138,16 +134,16 @@
             "named": false
           },
           {
+            "type": "arrow",
+            "named": true
+          },
+          {
             "type": "iff",
             "named": false
           },
           {
             "type": "in",
             "named": false
-          },
-          {
-            "type": "mult",
-            "named": true
           },
           {
             "type": "not",
@@ -159,10 +155,6 @@
           },
           {
             "type": "releases",
-            "named": false
-          },
-          {
-            "type": "set",
             "named": false
           },
           {
@@ -1240,10 +1232,6 @@
     "named": false
   },
   {
-    "type": "->",
-    "named": false
-  },
-  {
     "type": ".",
     "named": false
   },
@@ -1330,6 +1318,10 @@
   {
     "type": "and",
     "named": false
+  },
+  {
+    "type": "arrow",
+    "named": true
   },
   {
     "type": "before",
