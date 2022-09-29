@@ -1430,52 +1430,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "PREC",
-          "value": 2,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "operator",
-                "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "no"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "some"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "lone"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "one"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "sum"
-                    }
-                  ]
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "operand",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_expression"
-                }
-              }
-            ]
-          }
         }
       ]
     },

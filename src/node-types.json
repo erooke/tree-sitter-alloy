@@ -1184,10 +1184,6 @@
             "named": false
           },
           {
-            "type": "sum",
-            "named": false
-          },
-          {
             "type": "~",
             "named": false
           }

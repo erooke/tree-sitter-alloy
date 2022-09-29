@@ -168,7 +168,6 @@ module.exports = grammar({
             "once"
           ),
         ],
-        [02, choice("no", "some", "lone", "one", "sum")],
       ];
 
       return choice(
