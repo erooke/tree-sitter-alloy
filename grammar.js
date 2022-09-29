@@ -21,7 +21,8 @@ module.exports = grammar({
     source_file: ($) =>
       seq(optional($.module_decl), optional(repeat($._declaration))),
 
-    module_decl: ($) => seq("module", $.name),
+    module_decl: ($) =>
+      seq("module", $.name, optional(seq("[", commaRepeat($.name), "]"))),
 
     _declaration: ($) =>
       choice(
