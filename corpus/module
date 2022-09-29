@@ -1,0 +1,42 @@
+====
+Basic
+=====
+
+module a
+
+----
+
+(source_file
+  (module_decl
+    (qual_name
+      (name))))
+
+====
+Qualified Name
+====
+
+module a/b
+
+----
+
+(source_file
+  (module_decl
+    (qual_name
+      (name)
+      (name))))
+
+=====
+Parameters
+=====
+
+module a/b [c,d]
+
+----
+
+(source_file
+  (module_decl
+    (qual_name
+      (name)
+      (name))
+    (name)
+    (name)))
