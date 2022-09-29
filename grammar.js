@@ -13,6 +13,8 @@ module.exports = grammar({
     [$.function_call, $.quantified_expression],
     [$.implication_expression, $.quantified_expression],
     [$.scope, $.typescope],
+    [$._block_or_bar, $.implication_expression],
+    [$._block_or_bar, $.function_call],
   ],
 
   rules: {
@@ -74,17 +76,14 @@ module.exports = grammar({
         $.quantified_expression,
         $.prime_expression,
         $.block,
+        $.set_expression,
         seq("(", $._expression, ")")
       ),
 
+    set_expression: ($) => seq("{", commaRepeat($.decl), $._block_or_bar, "}"),
+
     let_expression: ($) =>
-      prec.right(
-        seq(
-          "let",
-          commaRepeat($.let_decl),
-          choice($.block, seq("|", $._expression))
-        )
-      ),
+      prec.right(seq("let", commaRepeat($.let_decl), $._block_or_bar)),
 
     let_decl: ($) => seq($.name, "=", $._expression),
 
@@ -105,7 +104,7 @@ module.exports = grammar({
       seq(
         field("quantifier", choice("no", "all", "sum", "lone", "some", "one")),
         commaRepeat($.decl),
-        choice($.block, seq("|", $._expression))
+        $._block_or_bar
       ),
 
     prime_expression: ($) => prec(20, seq($._expression, "'")),
@@ -188,6 +187,8 @@ module.exports = grammar({
     number: (_) => seq(optional("-"), /[0-9]+/),
 
     block: ($) => seq("{", repeat($._expression), "}"),
+
+    _block_or_bar: ($) => choice($.block, seq("|", $._expression)),
 
     fact_decl: ($) => seq("fact", field("name", optional($.name)), $.block),
 
