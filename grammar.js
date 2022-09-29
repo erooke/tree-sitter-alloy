@@ -239,8 +239,8 @@ module.exports = grammar({
     name: (_) =>
       seq(
         optional("this/"),
-        /[a-zA-Z0-9_]+/,
-        repeat(seq("/", /[a-zA-Z0-9_]+/))
+        /[a-zA-Z0-9_"]+/,
+        repeat(seq("/", /[a-zA-Z0-9_"]+/))
       ),
 
     comment: (_) =>
