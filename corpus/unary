@@ -62,3 +62,24 @@ fact {
         (name)
         (prime_expression
           (name))))))
+
+
+====
+Some
+====
+
+fact  {
+  a in b
+  some c
+}
+
+----
+
+(source_file
+  (fact_decl
+    (block
+      (binary_expression
+        (name)
+        (name))
+      (unary_expression
+        (name))))))
